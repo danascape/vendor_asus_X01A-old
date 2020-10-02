@@ -20,25 +20,6 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
-	name: "libaudio_log_utils",
-	owner: "asus",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libaudio_log_utils.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libaudio_log_utils.so"],
-		},
-	},
-	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libgpustats",
 	owner: "asus",
 	strip: {
@@ -167,7 +148,7 @@ android_app_import {
 	name: "TimeService",
 	owner: "asus",
 	apk: "proprietary/vendor/app/TimeService/TimeService.apk",
-	certificate: ":timeservice_app_cert-legacy-um",
+	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
 	},
